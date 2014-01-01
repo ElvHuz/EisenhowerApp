@@ -1,0 +1,135 @@
+    <!doctype html>
+<html ng-app='Eisenhower'>
+    <head>
+	
+		<title>Eisenhower</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+		<script src="EisenhowerApp.js"></script>
+		
+		
+		<link href="./dist/css/bootstrap.min.css" rel="stylesheet">
+		
+		<link rel="stylesheet" href="EisenhowerApp.css">
+    </head>
+    <body>
+	
+<nav class="navbar navbar-default navbar-inverse" role="navigation">
+  <!-- Brand and toggle get grouped for better mobile display -->
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"></button>
+    <a class="navbar-brand" href="#">Eisenhower</a>
+  </div>
+
+  <!-- Collect the nav links, forms, and other content for toggling -->
+  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <ul class="nav navbar-nav">
+      <li class="active">
+		<a href="./about.html">About</a>
+	  </li>
+    </ul>
+    
+    
+  </div><!-- /.navbar-collapse -->
+</nav>
+
+	<div class="container">
+	
+		<div class="row">
+		<h1>EisenhowerApp</h1>
+		<div ng-controller="MainCtrl" ng-init="init('Dringend - Wichtig')" class="col-md-4" >
+			<h2>{{prio}}</h2>
+			<span>{{remaining()}} of {{todos.length}} remaining</span>
+			[ <a href="" ng-click="archive()">archive</a> ]
+			<ul class="unstyled">
+			<li ng-repeat="todo in todos">
+			<input type="checkbox" ng-model="todo.done">
+			<span class="done-{{todo.done}}">{{todo.text}}</span>
+			</li>
+			</ul>
+			<form ng-submit="addTodo()">
+				<input type="text" ng-model="todoText" size="30"
+				placeholder="add new todo here">
+				<input class="btn-primary" type="submit" value="add">
+			</form>
+			[ <a href="" ng-click="save()">save</a> ]
+			[ <a href="" ng-click="load()">load</a> ]
+		</div>
+		<div ng-controller="MainCtrl" ng-init="init('Nicht Dringend - Wichtig')" class="col-md-4" >
+		
+			<h2>{{prio}}</h2>
+			<span>{{remaining()}} of {{todos.length}} remaining</span>
+			
+			[ <a href="" ng-click="archive()">archive</a> ]
+			<ul class="unstyled">
+			<li ng-repeat="todo in todos">
+			<input type="checkbox" ng-model="todo.done">
+			<span class="done-{{todo.done}}">{{todo.text}}</span>
+			</li>
+			</ul>
+			<form ng-submit="addTodo()">
+				<input type="text" ng-model="todoText" size="30"
+				placeholder="add new todo here">
+				<input class="btn-primary" type="submit" value="add">
+			</form>
+			[ <a href="" ng-click="save()">save</a> ]
+			[ <a href="" ng-click="load()">load</a> ]
+			
+		</div>
+		</div>
+		<div class="row">
+		<div ng-controller="MainCtrl" ng-init="init('Dringend - Nicht Wichtig')" class="col-md-4" >
+		
+			<h2>{{prio}}</h2>
+			<span>{{remaining()}} of {{todos.length}} remaining</span>
+			
+			[ <a href="" ng-click="archive()">archive</a> ]
+			<ul class="unstyled">
+			<li ng-repeat="todo in todos">
+			<input type="checkbox" ng-model="todo.done">
+			<span class="done-{{todo.done}}">{{todo.text}}</span>
+			</li>
+			</ul>
+			<form ng-submit="addTodo()">
+				<input type="text" ng-model="todoText" size="30"
+				placeholder="add new todo here">
+				<input class="btn-primary" type="submit" value="add">
+			</form>
+			[ <a href="" ng-click="save()">save</a> ]
+			[ <a href="" ng-click="load()">load</a> ]
+			
+		</div>
+		
+		
+		<div ng-controller="MainCtrl" ng-init="init('Nicht Dringend - Nicht Wichtig')" class="col-md-4" >
+			<h2>{{prio}}</h2>
+			<span>{{remaining()}} of {{todos.length}} remaining</span>
+			
+			[ <a href="" ng-click="archive()">archive</a> ]
+			<ul class="unstyled">
+			<li ng-repeat="todo in todos">
+			<input type="checkbox" ng-model="todo.done">
+			<span class="done-{{todo.done}}">{{todo.text}}</span>
+			</li>
+			</ul>
+			<form ng-submit="addTodo()">
+				<input type="text" ng-model="todoText" size="30"
+				placeholder="add new todo here">
+				<input class="btn-primary" type="submit" value="add">
+			</form>
+			[ <a href="" ng-click="save()">save</a> ]
+			[ <a href="" ng-click="load()">load</a> ]
+			
+		</div>
+		</div>
+		<div class="row">
+			<blockquote>
+				<p>What is important is seldom urgent and what is urgent is seldom important.</p>
+				<small>Dwight D. Eisenhower </small>
+			</blockquote>
+
+		</div>
+	</div>
+    </body>
+</html>
